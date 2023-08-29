@@ -919,13 +919,10 @@ export const getCompareResult = () => {
   const source = [...source_context_highlight, ...source_dif_highlight].filter((item) => item.id);
   const target = [...target_dif_highlight, ...target_context_highlight].filter((item) => item.id);
 
-  console.log({ source, target });
-
   source.forEach((source, index) => {
     const color = getColor();
     source.position.rects.forEach((sc: any, id: any) => {
       sc['backgroundColor'] = color;
-      // @ts-ignore
       target[index].position.rects[id]['backgroundColor'] = color;
     });
   });
